@@ -1,0 +1,52 @@
+div
+{
+	padding: 150px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+h1
+{
+	text-align: center;
+}
+h3
+{
+	padding-left: 30px;
+}
+ul
+{
+	list-style-type: none;
+}
+.greeting
+{
+	text-align: center;
+	color: gray;
+	font-size: 16px;
+}
+.aboutMe
+{
+	padding-top: 10px;
+}
+.contactMe
+{
+	text-align: center;
+	color: gray;
+	font-size: 14px;
+}
+.albumArt
+{
+	padding: 20px;
+	width: 150px;
+	height: auto;
+}
+.videoGame
+{
+	padding: 20px;
+	height: 150px;
+	width: auto;
+}
+.finePrint
+{
+	font-size: 16px;
+	color: gray;
+	text-align: center;
+}
