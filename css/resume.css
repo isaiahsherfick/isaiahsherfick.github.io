@@ -1,0 +1,48 @@
+html
+{
+	padding: 150px;
+	padding-top: 50px;
+}
+h1
+{
+	text-align: center;
+}
+.isaiah
+{
+	height: 200px;
+	width: auto;
+}
+.finePrint
+{
+	color: gray;
+	font-size: 9px;
+}
+.resumeLink
+{
+	text-align: right;
+}
+.homeLink
+{
+	text-align: right;
+}
+h1
+{
+	text-align: center;
+}
+h4
+{
+	text-align: center;
+}
+.java
+{
+	height:200px;
+	width:auto;
+}
+.keyboard
+{
+	height: 200px;
+	width: auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
