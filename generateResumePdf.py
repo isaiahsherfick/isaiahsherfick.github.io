@@ -1,8 +1,11 @@
 resume = open("resume.html","r")
 resumeText = resume.read()
 resumeText = resumeText.split("/n")
+startOfLinkStuff = 0
+endOfLinkStuff = 0
 for i in resumeText:
-    print(i)
+    if i == "<a class=\"homeLink\" href=\"index.html\">Home</a>":
+        print("Found it")
 resume.close()
 
 
