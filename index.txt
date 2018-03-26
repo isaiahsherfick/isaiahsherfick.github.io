@@ -110,20 +110,29 @@
 			<li>
 				Death Grips - The Money Store
 			</li>
+			<a href="https://open.spotify.com/album/1PQDjdBpHPikAodJqjzm6a">
 			<img src="images/theMoneyStore.jpg" class="albumArt">
+			</a>
 			<li>
 				Radiohead - Kid A
 			</li>
+			<a href="https://open.spotify.com/album/6J6nlVu4JMveJz0YM9zDgL">
 			<img src="images/kidA.jpg" class="albumArt">
+			</a>
 			<li>
 				Madvillain - Madvillainy
 			</li>
+			<a href="https://open.spotify.com/album/01FCoGEQ3NFWF4fHJzdiax">
 			<img src="images/madvillainy.jpg" class="albumArt">
+			</a>
 			<li>
 				Yes - Close To The Edge
 			</li>
+			<a href="https://open.spotify.com/album/252LyflX4wUeISSzgL392F">
 			<img src="images/closeToTheEdge.jpg" class="albumArt">
+			</a>
 		</ul>
+		<p class="finePrint">Click to open these albums via Spotify!</p>
 	</div>
 	<div class="games">
 		<h3>
