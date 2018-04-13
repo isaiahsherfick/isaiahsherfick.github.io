@@ -39,6 +39,15 @@ ul
 {
 	list-style-type: none;
 }
+.homeLink
+{
+	text-decoration: none;
+}
+.blogLink
+{
+	color: rgb(225,225,225);
+	text-decoration: none;
+}
 .greeting
 {
 	text-align: center;
