@@ -1,7 +1,10 @@
 html
 {
-	padding: 5%;
-	padding-top: 50px;
+	font-family: "Helvetica", "Arial", "sans-serif";
+}
+body
+{
+	/* center everything */
 }
 h1
 {
@@ -12,7 +15,7 @@ h1
 	height: 200px;
 	width: auto;
 }
-.finePrint
+.fineText
 {
 	color: gray;
 	font-size: 9px;
