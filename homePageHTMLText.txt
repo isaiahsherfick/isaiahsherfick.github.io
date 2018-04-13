@@ -1,10 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
+		<meta charset="UTF-8"/>
 		<title>Isaiah Sherfick - Home</title>
 		<link rel="stylesheet" type="text/CSS" href="css/main.css">
-		<script>
-			//JavaScript goes here
-		</script>
 	</head>
 	<body>
 	<div class="top">
@@ -12,10 +11,11 @@
 			Isaiah Sherfick - Home
 		</h1>
 		<p class="greeting">
-			Hi! I'm Isaiah Sherfick. Thank you for visiting my website! This is where I document my credentials, achievements, and projects for employers to see in the future.
+			Hi! I'm Isaiah Sherfick. Thank you for visiting my website! This is where I document my credentials, achievements, and projects for employers to see in the future. Blog coming soon.
 		</p>
-		<p class="contactMe">Contact me:</p>
-		<p class="contactMe"> email: isaiahsherfick8@gmail.com | Steam: toeshoes | Snapchat: toeshoesaresexy | LinkedIn: TBA</p>
+		<p class="contactMe">Contact me: email: isaiahsherfick8@gmail.com | Steam: toeshoes | Snapchat: toeshoesaresexy | LinkedIn: TBA</p>
+		<p class="contactMe"> Looking for my resume? <a href="resume.html">Look no further</a>
+		<hr/>
 		<h3>
 			A little about me
 		</h3>
@@ -28,7 +28,7 @@
 			The degree I'm working towards
 		</h3>
 			<p>
-			I'm currently working towards a B.S. in Computer Science from the School of Informatics, Computing, and Engineering at Indiana University with specializations in Security and Systems. If I can maintain the pace I currently am, I'll be aule to obtain my Master's in Computer Science with one extra semester of school, and that's my ultimate goal.
+			I'm currently working towards a B.S. in Computer Science from the School of Informatics, Computing, and Engineering at Indiana University with specializations in Security and Systems. If I can maintain the pace I currently am, I'll be able to obtain my Master's in Computer Science with one extra semester of school, and that's my ultimate goal.
 			</p>
 		<h3>
 			With that degree, I'd like to:
@@ -54,16 +54,6 @@
 			</li>
 		</bl>
 	</div>
-	<div class="resume">
-		<h3>
-			My Resume
-		</h3>
-		<bl>
-			<li>
-			<a href="resume.html">Resume</a>
-			</li>
-		</bl>
-	</div>
 	<div class="code">
 		<h3>
 			Projects I've done for school
@@ -72,7 +62,8 @@
 			<li>
 				Atari Breakout spinoff written in Python
 				<br>
-				<a href="https://github.iu.edu/CSCI-C200-Fall-2017/C200-Breakout-Team11">View on GitHub</a>
+				<a href="https://github.com/isaiahsherfick/C200-Breakout-Team11-master">View on GitHub</a>
+
 			</li>
 			<li>
 				This website, written using HTML, CSS, and JavaScript in Vim
@@ -105,6 +96,7 @@
 				<iframe height="400px" width="100%" src="https://repl.it/@toeshoes/GoldGoblin?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 			</li>
 		</bl>
+		<hr/>
 	</div>
 	<div class="music">
 		<h3>
@@ -115,28 +107,29 @@
 				Death Grips - The Money Store
 			</li>
 			<a href="https://open.spotify.com/album/1PQDjdBpHPikAodJqjzm6a">
-			<img src="images/theMoneyStore.jpg" class="albumArt">
+			<img src="images/theMoneyStore.jpg" class="albumArt" alt="Album art for Death Grips - The Money Store">
 			</a>
 			<li>
 				Radiohead - Kid A
 			</li>
 			<a href="https://open.spotify.com/album/6J6nlVu4JMveJz0YM9zDgL">
-			<img src="images/kidA.jpg" class="albumArt">
+			<img src="images/kidA.jpg" class="albumArt" alt="Album art for Radiohead - Kid A">
 			</a>
 			<li>
 				Madvillain - Madvillainy
 			</li>
 			<a href="https://open.spotify.com/album/01FCoGEQ3NFWF4fHJzdiax">
-			<img src="images/madvillainy.jpg" class="albumArt">
+			<img src="images/madvillainy.jpg" class="albumArt" alt="Album art for Madvillain - Madvillainy">
 			</a>
 			<li>
 				Yes - Close To The Edge
 			</li>
 			<a href="https://open.spotify.com/album/252LyflX4wUeISSzgL392F">
-			<img src="images/closeToTheEdge.jpg" class="albumArt">
+			<img src="images/closeToTheEdge.jpg" class="albumArt" alt="Album art for Yes - Close To The Edge">
 			</a>
 		</ul>
 		<p class="finePrint">Click to open these albums via Spotify!</p>
+		<hr/>
 	</div>
 	<div class="games">
 		<h3>
@@ -146,27 +139,31 @@
 			<li>
 				World Of Warcraft
 			</li>
-			<img src="images/worldOfWarcraft.jpg" class="videoGame">
+			<img src="images/worldOfWarcraft.jpg" class="videoGame" alt="Box art for World Of Warcraft: Wrath Of The Lich King">
 			<li>
 				Super Smash Bros. Melee
 			</li>
-			<img src="images/superSmashBrosMelee.jpg" class="videoGame">
+			<img src="images/superSmashBrosMelee.jpg" class="videoGame" alt="Box art for Super Smash Bros. Melee">
 			<li>
 				Street Fighter V
 			</li>
-			<img src="images/streetFighterV.jpg" class="videoGame">
+			<img src="images/streetFighterV.jpg" class="videoGame" alt="Box art for Street Fighter V">
 			<li>
 				Super Metroid
 			</li>
-			<img src="images/superMetroid.jpg" class="videoGame">
+			<img src="images/superMetroid.jpg" class="videoGame" alt="Box art for Super Metroid">
 			<li>
 				Dark Souls
 			</li>
-			<img src="images/darkSouls.jpg" class="videoGame">
+			<img src="images/darkSouls.jpg" class="videoGame" alt="Box art for Dark Souls">
 		</ul>
+		<hr/>
 	</div>
 	<p class="finePrint">
 		fine print will go here
 	</p>
+	<script>
+		//JavaScript goes here because we want the content to load first
+	</script>
 	</body>
 </html>

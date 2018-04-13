@@ -1,5 +1,18 @@
+html
+{
+	font-family: "Helvetica", "Arial", sans-serif;
+}
+body
+{
+	background-color: rgb(30,30,30);
+}
+a
+{
+	color: rgb(225,225,225);
+}
 div
 {
+	background-color: rgb(30,30,30);
 	padding: 5%;
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -7,10 +20,20 @@ div
 h1
 {
 	text-align: center;
+	color: rgb(200,200,200);
 }
 h3
 {
+	color: rgb(200,200,200);
 	padding-left: 30px;
+}
+li
+{
+	color: rgb(210,210,210);
+}
+p
+{
+	color: rgb(210,210,210);
 }
 ul
 {
