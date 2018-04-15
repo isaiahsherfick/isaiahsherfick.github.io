@@ -28,6 +28,34 @@ bl
 {
 	list-style-type: none;
 }
+.assignment
+{
+	text-align: center;
+	padding-bottom: 1px;
+	padding-top: 7%;
+}
+.pulsate
+{
+	-webkit-animation: pulsate 3s ease-out;
+	-webkit-animation-iteration-count: infinite;
+	opacity: 0.5;
+	color: #ff1a1a;
+}
+@-webkit-keyframes pulsate 
+{
+	0%
+	{
+		color: DodgerBlue;
+	}
+	50%
+	{
+		color: red;
+	}
+	100%
+	{
+		color: DodgerBlue;
+	}
+}
 .frequentLinks
 {
 	padding-right: 4%;
