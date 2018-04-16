@@ -1,9 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=PT+Sans');
-
-html
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+*
 {
-	font-family: "PT Sans", "sans-serif";
-}
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Open Sans", "sans-serif";
+}	
 body, div
 {
 	background-color: rgb(30,30,30);
@@ -11,6 +13,12 @@ body, div
 a
 {
 	color: rgb(225,225,225);
+}
+hr
+{
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
 }
 div
 {
@@ -20,6 +28,7 @@ div
 }
 h1
 {
+	padding-top: 5%;
 	text-align: center;
 	color: rgb(200,200,200);
 }
@@ -27,6 +36,7 @@ h3
 {
 	color: rgb(200,200,200);
 	padding-left: 30px;
+	padding-top: 2%;
 }
 li, p
 {
