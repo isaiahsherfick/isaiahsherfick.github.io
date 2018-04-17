@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Roboto|Ubuntu');
+/* If you pay for fonts in 2018 please leave my sight*/
+* 
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body
+{
+	color: #262626;
+	font-family: 'Open Sans';
+	background-color: #ffffff;
+}
+a
+{
+	color: black;
+}
+h1
+{
+	font-family: 'Ubuntu'; /* FOSS, baby */
+	text-align: center;
+	padding-top: 20px;
+	font-size: 3em;
+}
+h2
+{
+	font-family: 'Roboto';
+	padding-left: 15%;
+	padding-top:5%;
+	padding-bottom:5%;
+}
+p
+{
+	padding-left: 15%;
+	padding-right: 15%;
+}
+div
+{
+	padding-top:20px;
+	padding-bottom: 30px;
+}
+img
+{
+	width: 600px;
+	height: auto;
+	padding-bottom: 3%;
+	padding-left: 15%;
+}
+.finePrint
+{
+	color: rgb(200,200,200);
+	text-align: center;
+}
+.linksDiv
+{
+	text-align: center;
+	padding-top: 30px;
+}
+hr
+{
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.link
+{
+	margin-left: 5%;
+	margin-right: 5%;
+}
