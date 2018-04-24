@@ -1,51 +1,67 @@
-html
+@import url('https://fonts.googleapis.com/css?family=Lobster|Open+Sans|Electrolize|Poiret+One|Shrikhand|Tajawal');
+*
 {
-	font-family: "Helvetica", "Arial", "sans-serif";
+	margin: 0;
+ 	padding: 0;
+  	box-sizing: border-box;
 }
 body
 {
-	/* center everything */
+	font-family: "Open Sans";
 }
-h1
+hr
 {
-	text-align: center;
-}
-.isaiah
-{
-	height: 200px;
-	width: auto;
-}
-.fineText
-{
-	color: gray;
-	font-size: 9px;
-}
-.resumeLink
-{
-	text-align: right;
-}
-.homeLink
-{
-	text-align: right;
-}
-h1
-{
-	text-align: center;
-}
-h4
-{
-	text-align: center;
-}
-.java
-{
-	height:100px;
-	width:auto;
-}
-.keyboard
-{
-	height: 200px;
-	width: auto;
-	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	width: 50%;
+}
+.myName
+{
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-family: "Electrolize";
+}
+h1
+{
+	margin-bottom: 20px;
+}
+h2
+{
+	text-align: center;
+	margin-top: 10px;
+	font-family: "Poiret One";
+}
+div
+{
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-left:10%;
+	margin-right: 10%;
+}
+.whatILearned
+{
+	margin-left: 10%;
+}
+.aboutMe, .priorWork, .whatILearned
+{
+	text-align: left;
+}
+p
+{
+	margin-bottom: 10px;
+}
+.thankYou
+{
+	text-align: center;
+	color: #CCCCCC;
+}
+bl
+{
+	padding-top: 20px;
+}
+.contactInfo 
+{
+	display: inline;
 }
