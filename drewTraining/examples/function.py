@@ -3,7 +3,7 @@ def functionName():
 
 def functionWithArguments(argument1, argument2):
     print("This is how you define a function with " + str(argument2) + " arguments.")
-    print("arguments " + str(argument1) " depending on the values passed to the function when it's called later.")
+    print("arguments " + str(argument1) + " depending on the values passed to the function when it\'s called later.")
 
 def main():
     functionName()
