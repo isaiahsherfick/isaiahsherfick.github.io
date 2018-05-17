@@ -6,16 +6,18 @@
 		<link rel="stylesheet" type="text/CSS" href="css/main.css">
 	</head>
 	<body>
+	<h1>
+		Isaiah Sherfick - Home
+	</h1>
 	<div class="top">
-		<h1>
-			Isaiah Sherfick - Home
-		</h1>
 		<p class="greeting">
-			Hi! I'm Isaiah Sherfick. Thank you for visiting my website! This is where I document my credentials, achievements, and projects for employers to see in the future. Blog coming soon.
+		Hi! I'm Isaiah Sherfick. Thank you for visiting my website! This is where I document my credentials, achievements, and projects for employers to see in the future. <a class="blogLink" href="blog/blogHome.html">Blog</a> 
 		</p>
-		<p class="contactMe">Contact me: email: isaiahsherfick8@gmail.com | Steam: toeshoes | Snapchat: toeshoesaresexy | LinkedIn: TBA</p>
-		<p class="contactMe"> Looking for my resume? <a href="resume.html">Look no further</a>
+		<p class="contactMe">Contact me: email: isaiahsherfick8@gmail.com | LinkedIn: TBA</p>
+		<p class="contactMe"> Looking for my resume? <a href="summerJobResume.html">Look no further</a>
+	</div>
 		<hr/>
+	<div class="aboutMe">
 		<h3>
 			A little about me
 		</h3>
@@ -69,6 +71,7 @@
 				This website, written using HTML, CSS, and JavaScript in Vim
 				<br>
 				<a href="homePageHTMLText.txt">Website Code</a>
+				(The majority of the work done is now well beyond what was originally required of me in class)
 			</li>
 			<li>
 				More to come
@@ -86,18 +89,14 @@
 				<br>
 				<a href="https://github.com/isaiahsherfick/arouga">Java Code on GitHub</a>
 			</li>
-			<li>
-				Various small bash scripts to improve my day-to-day use of my Arch Linux workstation, including backup scripts and screenshot tools
-				<br>
-				<a href="scripts.zip">QoL/Fun Scripts</a>
 			</li>
 			<li>
 				A whole bunch of little programs viewable on my <a href="https://repl.it/@toeshoes">repl.it page</a>. For example: a script I wrote to calculate the profits made from selling something in World of Warcraft in relation to buying vs. farming the materials needed.
 				<iframe height="400px" width="100%" src="https://repl.it/@toeshoes/GoldGoblin?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 			</li>
 		</bl>
-		<hr/>
 	</div>
+	<hr/>
 	<div class="music">
 		<h3>
 			Some of my favorite albums
@@ -129,8 +128,8 @@
 			</a>
 		</ul>
 		<p class="finePrint">Click to open these albums via Spotify!</p>
-		<hr/>
 	</div>
+	<hr/>
 	<div class="games">
 		<h3>
 			Some of my favorite video games
@@ -157,11 +156,7 @@
 			</li>
 			<img src="images/darkSouls.jpg" class="videoGame" alt="Box art for Dark Souls">
 		</ul>
-		<hr/>
 	</div>
-	<p class="finePrint">
-		fine print will go here
-	</p>
 	<script>
 		//JavaScript goes here because we want the content to load first
 	</script>
