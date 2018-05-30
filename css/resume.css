@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster|Open+Sans|Electrolize|Poiret+One|Shrikhand|Tajawal');
+*
+{
+	margin: 0;
+ 	padding: 0;
+  	box-sizing: border-box;
+}
+body
+{
+	font-family: "Open Sans";
+}
+hr
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+.page
+{
+	margin: 0 auto;
+}
+.myName
+{
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-family: "Electrolize";
+}
+h1
+{
+	margin-bottom: 20px;
+}
+h2
+{
+	text-align: center;
+	margin-top: 10px;
+	font-family: "Poiret One";
+}
+div
+{
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-left:10%;
+	margin-right: 10%;
+}
+.whatILearned
+{
+	margin-left: 5%;
+}
+.aboutMe, .priorWork, .whatILearned
+{
+	text-align: left;
+}
+p
+{
+	margin-bottom: 10px;
+}
+.thankYou
+{
+	text-align: center;
+	color: #CCCCCC;
+}
+bl
+{
+	padding-top: 20px;
+}
+.contactInfo 
+{
+	display: inline;
+}
