@@ -1,5 +1,0 @@
-index.html - home page, span with links to other pages, introduction to the problem space (problem statement, process we took in choosing the problem, basic info about problem)
-research.html - include ALL research elements. This means you've gotta go interview people. Tie it together
-dataviz.html - Data and Visualization. Use Python or something. Make sure you use a database.
-solution.html - Intro to our app, how it addresses our problem, specific target audience, sketch of app working, basic look into how you feel people will react to the solution, cite research in this section.
-
