@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Click for a random picture of Kiwi</title>
+		<link rel="stylesheet" type="text/CSS" href="css/main.css">
+	</head>
+	<script>
+		function changeImage()
+		{
+			int randomDigit = Math.floor((Math.random() * 60) + 7);
+			alert(randomDigit);
+			document.getElementById("pic").src = randomDigit + ".jpg";
+		}
+	</script>
+	<body>
+
+	<div class="page">
+		<img id ="pic" onclick ="changeImage()" src="19.jpg"></i>
+	</div>
+
+	</body>
+</html>

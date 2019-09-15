@@ -1,71 +1,88 @@
-@import url('https://fonts.googleapis.com/css?family=Lobster|Open+Sans|Electrolize|Poiret+One|Shrikhand|Tajawal');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 *
 {
 	margin: 0;
- 	padding: 0;
-  	box-sizing: border-box;
-}
-body
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Open Sans", "sans-serif";
+}	
+body, div
 {
-	font-family: "Open Sans";
+	background-color: rgb(30,30,30);
+}
+a
+{
+	color: rgb(225,225,225);
 }
 hr
 {
+	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
-	width: 50%;
-}
-.page
-{
-	margin: 0 auto;
-}
-.myName
-{
-	text-align: center;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	font-family: "Electrolize";
-}
-h1
-{
-	margin-bottom: 20px;
-}
-h2
-{
-	text-align: center;
-	margin-top: 10px;
-	font-family: "Poiret One";
 }
 div
 {
+	padding: 5%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+h1
+{
+	padding-top: 5%;
 	text-align: center;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	margin-left:10%;
-	margin-right: 10%;
+	color: rgb(200,200,200);
 }
-.whatILearned
+h3
 {
-	margin-left: 5%;
+	color: rgb(200,200,200);
+	padding-left: 30px;
+	padding-top: 2%;
 }
-.aboutMe, .priorWork, .whatILearned
+li, p
 {
+	color: rgb(210,210,210);
+}
+li
+{
+	padding: 1%;
+}
+ul
+{
+	list-style-type: none;
+}
+.page
+{
+	width: 70%;
+	margin: 0 auto;
+}
+.homeLink, .blogLink
+{
+	text-decoration: none;
+}
+.blogLink
+{
+	color: rgb(225,225,225);
+}
+.greeting
+{
+	padding: 1%;
+	text-align: center;
+	color: gray;
+	font-size: 16px;
+}
+.aboutMe
+{
+	padding-top: 10px;
+}
+{
+	padding-left: 11%;
 	text-align: left;
+	color: gray;
+	font-size: 14px;
 }
-p
+.albumArt, .videoGame
 {
-	margin-bottom: 10px;
-}
-.thankYou
-{
-	text-align: center;
-	color: #CCCCCC;
-}
-bl
-{
-	padding-top: 20px;
-}
-.contactInfo 
-{
-	display: inline;
+	padding: 20px;
+	width: 150px;
+	height: auto;
 }
