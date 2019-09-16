@@ -3,20 +3,20 @@
 	<head>
 		<meta charset="UTF-8"/>
 		<title>Click for a random picture of Kiwi</title>
-		<link rel="stylesheet" type="text/CSS" href="css/main.css">
+		<link rel="stylesheet" type="text/CSS" href="kiwi.css">
 	</head>
 	<script>
 		function changeImage()
 		{
-			int randomDigit = Math.floor((Math.random() * 60) + 7);
-			alert(randomDigit);
-			document.getElementById("pic").src = randomDigit + ".jpg";
+			var randomDigit = Math.floor((Math.random() * 60) + 3);
+			var newsrc = randomDigit.toString() + ".jpg";
+			document.getElementById("pic").src = newsrc;
 		}
 	</script>
 	<body>
 
 	<div class="page">
-		<img id ="pic" onclick ="changeImage()" src="19.jpg"></i>
+		<img class="center-fit" id ="pic" onclick="changeImage()" src="19.jpg"></i>
 	</div>
 
 	</body>
