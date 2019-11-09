@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Lobster";
+}	
+
+body, div
+{
+	background-color: #111;
+}
+
+div
+{
+	padding-bottom: 10%;
+	padding-top: 10%;
+}
+
+p
+{
+	font-size: 100px;
+	color: #CCC;
+	display: none;
+}
+.left
+{
+	text-align: left;
+	-webkit-animation: pulsate 5s ease-out;
+	-webkit-animation-iteration-count: 1;
+	opacity: 0.5;
+	color: #111;
+}
+.center
+{
+	text-align: center;
+	-webkit-animation: pulsate 5s ease-out;
+	-webkit-animation-iteration-count: 1;
+	opacity: 0.5;
+	color: #111;
+}
+.right
+{
+	text-align: right;
+	-webkit-animation: pulsate 5s ease-out;
+	-webkit-animation-iteration-count: 1;
+	opacity: 0.5;
+	color: #111;
+}
+@-webkit-keyframes pulsate 
+{
+	0%
+	{
+		color: white;
+	}
+	50%
+	{
+		color: red;
+	}
+	100%
+	{
+		color: #111;
+	}
+}
