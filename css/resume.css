@@ -41,6 +41,8 @@ h3
 li, p
 {
 	color: rgb(210,210,210);
+	padding: 20%;
+	text-align: left;
 }
 li
 {
