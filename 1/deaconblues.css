@@ -1,0 +1,29 @@
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background-color: #0A0A0A;
+	font-size: 65px;
+}
+.chord
+{
+	color: #ABABAB;
+	text-align: center;
+	padding-bottom: 2.5%;
+}
+.bar1
+{
+	padding-top: 5%;
+	font-size: 65px;
+	color:#AA7777;
+	text-align: center;
+	padding-bottom: 2.5%;
+}
+.bar2
+{
+	font-size: 65px;
+	color:#AA7777;
+	text-align: center;
+	padding-bottom: 2.5%;
+}
