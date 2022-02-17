@@ -12,64 +12,92 @@
             1. Setup
         </h1>
 		<hr/>
-		<p class="missionText">
-        To get started, you're not actually going to do any coding yet. What this initial module will cover is just setting up your development environment (most of which I've already done for you) and familiarizing yourself with some of the tools you'll be using. Now, the curriculum I have in mind for you is a little unconventional. Most coding courses start out really holding your hand and letting you stay in cozy little Windows land where everything has a graphical interface and you can use a mouse.... We're not gonna do that here. We're going back to the 70's to start out. Trust me that this will all be incredibly helpful in the long run though it may seem weird and unfamiliar at first. 
+		<p >
+        To get started, you're not actually going to do too much coding yet. What this initial module will cover is just setting up your development environment (most of which I've already done for you) and familiarizing yourself with some of the tools you'll be using. Now, the curriculum I have in mind for you is a little unconventional. Most coding courses start out really holding your hand and letting you stay in cozy little Windows land where everything has a graphical interface and you can use a mouse.... We're not gonna do that here. We're going back to the 70's to start out. Trust me that this will all be incredibly helpful in the long run though it may seem weird and unfamiliar at first. 
 		</p>
-        <h2>
+        <h2 >
             The gist
         </h2>
-        <p>You're going to be using the<em>secure shell</em>protocol to remotely connect to a small computer running in my house. You'll do this via the <em>git bash</p>
+        <p>You're going to be using the <em>secure shell</em> protocol to remotely connect to a small computer running in my house. You'll do this via the <em>git bash</em> terminal emulator, which you can download <a href="downloadlink">here</a>. Then you're going to play around and familiarize yourself with the environment before we get into any coding. We're doing it this way because the alternative is to either have you install linux on your computer or have you do all this stuff in Windows, which would require you to install and download like 50 things which is just an annoying amount of setup. I've got all of that set up on this little server already and I can put stuff there for you to mess with very easily.</p> 
         <p></p>
-        <h2 class="missionTitle">
-            <a class="missionText" href="setup.html">1. Setup</a>
+        <h2>
+            Step 1: download and install git bash
         </h2>
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
+        <p>Download it <a href="https://git-scm.com/download/win">here</a>. Don't worry about what "git" is yet. It's important, but we're not there yet. For now, this is just a terminal you can use to remotely connect to the dev environment.</p>
+        <h2>
+            Step 2: use git bash to ssh into the server
+        </h2>
+        <ol>
+            <li>Text me to get the <em>IP address</em> of the server as well as your login credentials.</li>
+            <li>Open up git bash and type in the following command (I'm using placeholder stuff for login / ip here): " ssh jack@111.222.333.444 "</li>
+            <li>If all goes well and you've successfully entered your password, you've now successfully connected to the remote server. Welcome to Linux land!</li>
+        </ol>
+        <h2>
+            Step 3: create a new directory (folder) and move into it
+        </h2>
+        <ol>
+            <li>Type the following command: " mkdir jack_working " and press enter.</li>
+            <li>Now type "ls" and press enter. This will show you all of the files in your current directory. This is just the current folder that you're in. It's exactly the same as how Windows folders work -- there's just no mouse or anything. You should see the directory you created in the previous step.</li>
+            <li>Now type "cd ja" and press tab (this will autocomplete for you) and hit enter.</li>
+            <li>Verify that you're in your new directory by executing the command " pwd " (print working directory). If you see "/home/jack/jack_working", you've done it all right.
+        </ol>
+        <h2>
+            Step 4 (last step): create your first C file and run it!
+        </h2>
+        <p> Some people might call me insane for teaching you C as your first introduction to programming, but I stand by it. C is one of the oldest and most widely used programming languages, but it is also <em> BARE BONES </em>. This is the language that ATMs and stoplights and coffee makers use mostly these days, but it's sort of where it all began. It's really picky, it's really """"hard"""", and it can be quite annoying at times. However, it's going to be a big payoff when you get to use a modern language and you'll be able to truly appreciate all of the heavy lifting they silently do for you.
+        <ol>
+            <li>Type the following command: " touch hello.c " and press enter. Then run "ls" again to verify that you did, in fact, create a file called hello.c.</li>
+            <li>Now type in the following command: " nano hello.c " and run it. You have now opened up your empty hello.c file in the <em>nano text editor</em>. This is the only time I'll have you use nano because it kind of sucks, but I don't want to throw you too far off the deep end right away since this is a really quick task. Think of this exactly like notepad in Windows land - use the arrow keys to move around and type in whatever you want to type. Control+O saves the file, Control+X closes the file when you're done. Don't worry about learning any other shortcuts because the next module will be focused on the best text editor, Vim.</li>
+            <li>Type the following at the top of your file: "#include &lt;stdio.h&gt;" then open up a new line by hitting enter. You've just <em>imported</em> a <em>library</em>, which is just a bunch of code that somebody else already wrote that's very useful to you. Don't think too hard about it, just consider this a necessary step for now. Do this automatically when you start writing a C file from this point on.</p>
+        <li>Now we're going to define the <em> main() </em> function. I'm throwing out a bunch of shit right now that we will go into more detail on later, but just roll with it for now. Type in the following code. 
+            <p> int main(void)</p>
+            <p>{</p>
+            <p>}</p>
+            Inside of these curly braces is what code will be run when we actually execute this code. It's empty right now, so if we were to <em>compile</em> (crunch the code down into a ".exe" type file that you can run), NOTHING would happen because there is nothing inside of the main function. So let's make it do something.
+        </li>
+            <li>Add the following code into your main function so that it looks like this:
+                <p>#include&lt;stdio.h&gt;</p>
+                <p>int main(void)</p>
+                <p>{</p>
+                <p>&emsp;printf("Hello, world!\n");<p>
+                <p>}</p>
+            </li>
+        <li>
+            Save and exit the file by pressing ctrl+O, ctrl+X.
+        </li>
+        <li>
+            Now you're back in terminal land. Type the following to <em> compile </em> your code: 
+            <p>" gcc h " hit tab so it autocompletes, then hit enter. Run "ls" again and you should see a new file: "a.out". This is your compiled code.</p>
+        </li>
+        <li> FINAL STEP: execute your code!
+            <p> run the following command: "./a.out" </p>
+            <p> The terminal should say "Hello world!" back to you. You've successfully written a C program and executed it on a remote Linux server. Text me when you're done.</p>
+        </li>
+        </ol>
         <h2 class="missionTitle">
-            Command Line References:
+            Linux Command References:
         </h2>
         <ul>
             <li>
-                <p><b>ls</b> -> show all files in the <em>current directory</em></p>
+                <b>ls</b> -> show all files in the <em>current directory</em>
             </li>
             <li>
-                <p><b>pwd</b> -> "print working directory"; show where you currently are in the filesystem.</p>
+                <b>pwd</b> -> "print working directory"; show where you currently are in the filesystem.
             </li>
             <li>
-                <p><b>cd [/path/to/target/directory]</b> -> "change directory"; change where you are to where you want to go</p>
+                <b>cd [/path/to/target/directory]</b> -> "change directory"; change where you are to where you want to go
             </li>
             <li>
-                <p><b>cat [file]</b> -> dump out the contents of [file] to the console</p>
+                <b>cat [file]</b> -> dump out the contents of [file] to the console
             </li>
             <li>
-                <p><b>vim [file]</b> -> open a file in <em>vim</em> (more soon)</p>
+                <b>vim [file]</b> -> open a file in <em>vim</em> (more soon)
             </li>
             <li>
-                <p><b>mkdir [new directory name]</b> -> create a new directory in the current working directory</p>
+                <b>mkdir [new directory name]</b> -> create a new directory in the current working directory
             </li>
             <li>
-                <p><b>rm [file]</b> -> DELETE a file (super permanent, no recycling bin, that shit's gone)</p>
+                <b>rm [file]</b> -> DELETE a file (super permanent, no recycling bin, that shit's gone)
             </li>
         </ul>
 	<script>
