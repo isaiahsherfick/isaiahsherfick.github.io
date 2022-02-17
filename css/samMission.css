@@ -3,8 +3,12 @@ body, a
 {
 	background-color: black;
 	color: #66ff66;
-	text-align: center;
+	text-align: left;
 	font-family: "Roboto Mono";
+}
+h1
+{
+    text-align: center;
 }
 ol
 {
