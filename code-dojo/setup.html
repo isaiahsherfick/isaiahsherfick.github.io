@@ -18,12 +18,12 @@
         <h2 >
             The gist
         </h2>
-        <p>You're going to be using the <em>secure shell</em> protocol to remotely connect to a small computer running in my house. You'll do this via the <em>git bash</em> terminal emulator, which you can download <a href="downloadlink">here</a>. Then you're going to play around and familiarize yourself with the environment before we get into any coding. We're doing it this way because the alternative is to either have you install linux on your computer or have you do all this stuff in Windows, which would require you to install and download like 50 things which is just an annoying amount of setup. I've got all of that set up on this little server already and I can put stuff there for you to mess with very easily.</p> 
+        <p>You're going to be using the <em>secure shell</em> protocol to remotely connect to a small computer running in my house. You'll do this via the <em>git bash</em> terminal emulator, which you can download <a href="downloadlink">here</a>. Then you're going to play around and familiarize yourself with the environment before we get into too much coding. We're doing it this way because the alternative is to either have you install linux on your computer or have you do all this stuff in Windows, which would require you to install and download like 50 things which is just an annoying amount of setup. I've got all of that set up on this little server already and I can put stuff there for you to mess with very easily.</p> 
         <p></p>
         <h2>
             Step 1: download and install git bash
         </h2>
-        <p>Download it <a href="https://git-scm.com/download/win">here</a>. Don't worry about what "git" is yet. It's important, but we're not there yet. For now, this is just a terminal you can use to remotely connect to the dev environment.</p>
+        <p>Download it <a href="https://git-scm.com/download/win">here</a>. Don't worry about what "git" is yet. It's important, but we're not there yet. For now, this is just a terminal (little typey hacker screen) you can use to remotely connect to the dev environment.</p>
         <h2>
             Step 2: use git bash to ssh into the server
         </h2>
@@ -37,7 +37,7 @@
         </h2>
         <ol>
             <li>Type the following command: " mkdir jack_working " and press enter.</li>
-            <li>Now type "ls" and press enter. This will show you all of the files in your current directory. This is just the current folder that you're in. It's exactly the same as how Windows folders work -- there's just no mouse or anything. You should see the directory you created in the previous step.</li>
+            <li>Now type "ls" and press enter. This will show you all of the files and folders in your current directory. This is just the current folder that you're in. It's exactly the same as how Windows folders work -- there's just no mouse or anything. You should see the directory you created in the previous step.</li>
             <li>Now type "cd ja" and press tab (this will autocomplete for you) and hit enter.</li>
             <li>Verify that you're in your new directory by executing the command " pwd " (print working directory). If you see "/home/jack/jack_working", you've done it all right.
         </ol>
@@ -92,6 +92,9 @@
             </li>
             <li>
                 <b>vim [file]</b> -> open a file in <em>vim</em> (more soon)
+            </li>
+            <li>
+                <b>nano [file]</b> -> open a file in <em>nano</em> 
             </li>
             <li>
                 <b>mkdir [new directory name]</b> -> create a new directory in the current working directory
