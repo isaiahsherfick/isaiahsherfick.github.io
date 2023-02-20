@@ -11,9 +11,11 @@
 			align-items: center;
 			justify-content: center;
 			perspective: 1000px;
+			background-color: lightgray;
+			transition: background-color 5s ease;
 		}
-		
-		#canvas {
+		canvas {
+			transition: 5s ease;
 			background-color: #222;
 		}
 	</style>
@@ -27,25 +29,42 @@
 		const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 		const renderer = new THREE.WebGLRenderer({canvas: document.getElementById('canvas'), alpha: true});
 
-		const rendererSizeX = 600;
-		const rendererSizeY = 600;
+		const rendererXScale = 0.75;
+		const rendererYScale = 0.75;
+
+		const rendererSizeX = window.innerWidth*rendererXScale;
+		const rendererSizeY = window.innerHeight*rendererYScale;
 		
 		renderer.setSize(rendererSizeX, rendererSizeY);
+
+		const canvas = renderer.domElement;
+		canvas.style.transition = "background-color 1s ease";
 		
 		const geometry = new THREE.BoxGeometry();
-		const material = new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: true});
-		const cube = new THREE.Mesh(geometry, material);
+		let material = new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: true, wireframeLinewidth: 2,});
+		const cubeFaces = new THREE.Mesh(geometry, material);
+		const cubeEdges = new THREE.LineSegments(new THREE.EdgesGeometry(geometry), material);
+        const maxScale = 4.5;
+        const minScale = 0.5;
+		const cubeSpeedDeltaX = 0;
+		const cubeSpeedDeltaY = 0;
+		let cubeVelocityDeltaX = cubeSpeedDeltaX;
+		let cubeVelocityDeltaY = cubeSpeedDeltaY;
+        const initialCubeScale = (maxScale + minScale )/ 2;
+		const scaleDelta = 0.005;
+        let cubeScale = initialCubeScale;
+        let scalingUp = true;
 		
-		scene.add(cube);
+		scene.add(cubeFaces);
+		scene.add(cubeEdges);
 		
 		camera.position.z = 5;
 		
 		const animate = function () {
 			requestAnimationFrame(animate);
-			
-			cube.rotation.x += 0.01;
-			cube.rotation.y += 0.01;
-			
+			updateCubeRotation();
+			updateCubePositions();
+            updateCubeScale();
 			renderer.render(scene, camera);
 		};
 		
@@ -59,12 +78,106 @@
 			}
 			return color;
 		}
+
+		function getComplementaryColor(color) {
+			// Remove the # if it exists
+			color = color.slice(1);
+
+			// Convert the hex color to RGB
+			const r = parseInt(color.slice(0, 2), 16);
+			const g = parseInt(color.slice(2, 4), 16);
+			const b = parseInt(color.slice(4, 6), 16);
+
+			// Find the complementary color
+			const compR = (255 - r).toString(16).padStart(2, '0');
+			const compG = (255 - g).toString(16).padStart(2, '0');
+			const compB = (255 - b).toString(16).padStart(2, '0');
+
+			// Return the complementary color as a hex string
+			return '#' + compR + compG + compB;
+		}
+
+        function updateCubeScale() {
+            if (scalingUp)
+            {
+                cubeScale += scaleDelta;
+                scalingUp = cubeScale <= maxScale;
+            }
+            else
+            {
+                cubeScale -= scaleDelta;
+                scalingUp = cubeScale <= minScale;
+            }
+            cubeFaces.scale.set(cubeScale,cubeScale,cubeScale);
+            cubeEdges.scale.set(cubeScale+0.1,cubeScale+0.1,cubeScale+0.1);
+        }
+
+		function updateCubeRotation() {
+			
+			cubeFaces.rotation.x += 0.005;
+			cubeFaces.rotation.y += 0.005;
+			cubeEdges.rotation.x += 0.005;
+			cubeEdges.rotation.y += 0.005;
+		}
+
+		function updateCubePositions() {
+			let x = cubeFaces.position.x;
+			let y = cubeEdges.position.y;
+
+			if (x > renderer.innerWidth)
+			{
+				cubeVelocityDeltaX = -1 * cubeSpeedDeltaX;
+			}
+			if (x < 0)
+			{
+				cubeVelocityDeltaX = cubeSpeedDeltaX;
+			}
+			if (y > renderer.innerWidth)
+			{
+				cubeVelocityDeltaY = cubeSpeedDeltaY * -1;
+			}
+			if (y < 0)
+			{
+				cubeVelocityDeltaY = 1;
+			}
+			x += cubeVelocityDeltaX;
+			y += cubeVelocityDeltaY;
+			cubeFaces.position.x = x;
+			cubeFaces.position.y = y;
+			cubeEdges.position.x = x;
+			cubeEdges.position.y = y;
+		}
+
+		function getBrightness(color) {
+			color = color.replace("#","");
+			const r = parseInt(color.substring(0,2),16);
+			const g = parseInt(color.substring(2,4),16);
+			const b = parseInt(color.substring(4,5),16);
+			return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+		}
+
 		
 		setInterval(function() {
-			document.body.style.backgroundColor = getRandomColor();
-			renderer.setClearColor(getRandomColor());
-		}, 1000);
+			const backgroundColor = getRandomColor();
+			document.body.style.backgroundColor = backgroundColor;
+			document.getElementsByTagName('canvas')[0].style.backgroundColor = getComplementaryColor(backgroundColor);
+			material = new THREE.MeshBasicMaterial({wireframe: true, color: backgroundColor});
+            cubeFaces.material = material;
+			let frameColor = cubeEdges.material.color;
+			const brightnessValue = getBrightness(backgroundColor);
+			if (brightnessValue < 100)
+			{
+				frameColor = 'black';
+			}
+			else 
+			{
+				frameColor = 'white';
+			}
+			material = new THREE.MeshBasicMaterial({wireframe: true, color: frameColor});
+			cubeEdges.material = material;
+		}, 3000);
 	</script>
 </body>
 </html>
+
 
