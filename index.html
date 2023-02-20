@@ -12,10 +12,8 @@
 			justify-content: center;
 			perspective: 1000px;
 			background-color: lightgray;
-			transition: background-color 5s ease;
 		}
 		canvas {
-			transition: 5s ease;
 			background-color: #222;
 		}
 	</style>
@@ -38,7 +36,6 @@
 		renderer.setSize(rendererSizeX, rendererSizeY);
 
 		const canvas = renderer.domElement;
-		canvas.style.transition = "background-color 1s ease";
 		
 		const geometry = new THREE.BoxGeometry();
 		let material = new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: true, wireframeLinewidth: 2,});
@@ -175,7 +172,7 @@
 			}
 			material = new THREE.MeshBasicMaterial({wireframe: true, color: frameColor});
 			cubeEdges.material = material;
-		}, 3000);
+		}, 1000);
 	</script>
 </body>
 </html>
