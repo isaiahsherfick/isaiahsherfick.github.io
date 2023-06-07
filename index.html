@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Three.js Isodecahedrons</title>
+		<title>fuck the police</title>
 		<style>
 			body {
 				margin: 0;
@@ -20,6 +20,7 @@
 	</head>
 	<body>
 		<canvas id="canvas"></canvas>
+
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 		<script>
 			const scene = new THREE.Scene();
@@ -34,8 +35,8 @@
 				alpha: true,
 			});
 
-			const rendererXScale = 1;
-			const rendererYScale = 1;
+			const rendererXScale = 0.75;
+			const rendererYScale = 0.75;
 
 			const rendererSizeX =
 				window.innerWidth * rendererXScale;
@@ -46,54 +47,41 @@
 
 			const canvas = renderer.domElement;
 
-			const geometry = new THREE.IcosahedronGeometry(1, 0);
-			const material = new THREE.MeshBasicMaterial({
+			const geometry = new THREE.BoxGeometry();
+			let material = new THREE.MeshBasicMaterial({
 				color: 0xffffff,
 				wireframe: true,
+				wireframeLinewidth: 2,
 			});
+			const cubeFaces = new THREE.Mesh(geometry, material);
+			const cubeEdges = new THREE.LineSegments(
+				new THREE.EdgesGeometry(geometry),
+				material
+			);
+			const maxScale = 4.5;
+			const minScale = 0.5;
+			const cubeSpeedDeltaX = 0;
+			const cubeSpeedDeltaY = 0;
+			let cubeVelocityDeltaX = cubeSpeedDeltaX;
+			let cubeVelocityDeltaY = cubeSpeedDeltaY;
+			const initialCubeScale = (maxScale + minScale) / 2;
+			const scaleDelta = 0.005;
+			let cubeScale = initialCubeScale;
+			let scalingUp = true;
 
-			// Create the isodecahedrons and add them to the scene
-			const cols = 40;
-			const rows = 40;
-			const meshes = [];
+			scene.add(cubeFaces);
+			scene.add(cubeEdges);
 
-			const padding = 3;
-			const camera_distance = 5;
-			for (let i = 0; i < rows; i++) {
-				for (let j = 0; j < cols; j++) {
-					const mesh = new THREE.Mesh(
-						geometry,
-						material
-					);
+			camera.position.z = 5;
 
-					mesh.scale.set(1, 1, 1);
-					mesh.position.set(
-						i * padding - rows / 2,
-						j * padding - cols / 2,
-						-1 * camera_distance
-					);
-					scene.add(mesh);
-					meshes.push(mesh);
-				}
-			}
-
-			let counter = 0;
-			let cameraDx = 0.01;
-
-			// Set up the animation loop
-			function animate() {
+			const animate = function () {
 				requestAnimationFrame(animate);
-				scene.children.forEach((mesh, i) => {
-					mesh.rotation.y += 0.01;
-				});
+				updateCubeRotation();
+				updateCubePositions();
+				updateCubeScale();
 				renderer.render(scene, camera);
-				counter++;
-				if (counter > 1200) {
-					cameraDx *= -1;
-					counter = 0;
-				}
-				camera.position.x += cameraDx;
-			}
+			};
+
 			animate();
 
 			function getRandomColor() {
@@ -135,89 +123,94 @@
 				return "#" + compR + compG + compB;
 			}
 
-			let color;
+			function updateCubeScale() {
+				if (scalingUp) {
+					cubeScale += scaleDelta;
+					scalingUp = cubeScale <= maxScale;
+				} else {
+					cubeScale -= scaleDelta;
+					scalingUp = cubeScale <= minScale;
+				}
+				cubeFaces.scale.set(
+					cubeScale,
+					cubeScale,
+					cubeScale
+				);
+				cubeEdges.scale.set(
+					cubeScale + 0.1,
+					cubeScale + 0.1,
+					cubeScale + 0.1
+				);
+			}
 
-			function changeMeshColor(mesh) {
-				color = getRandomColor();
-				mesh.material.color.set(color);
+			function updateCubeRotation() {
+				cubeFaces.rotation.x += 0.005;
+				cubeFaces.rotation.y += 0.005;
+				cubeEdges.rotation.x += 0.005;
+				cubeEdges.rotation.y += 0.005;
+			}
+
+			function updateCubePositions() {
+				let x = cubeFaces.position.x;
+				let y = cubeEdges.position.y;
+
+				if (x > renderer.innerWidth) {
+					cubeVelocityDeltaX =
+						-1 * cubeSpeedDeltaX;
+				}
+				if (x < 0) {
+					cubeVelocityDeltaX = cubeSpeedDeltaX;
+				}
+				if (y > renderer.innerWidth) {
+					cubeVelocityDeltaY =
+						cubeSpeedDeltaY * -1;
+				}
+				if (y < 0) {
+					cubeVelocityDeltaY = 1;
+				}
+				x += cubeVelocityDeltaX;
+				y += cubeVelocityDeltaY;
+				cubeFaces.position.x = x;
+				cubeFaces.position.y = y;
+				cubeEdges.position.x = x;
+				cubeEdges.position.y = y;
+			}
+
+			function getBrightness(color) {
+				color = color.replace("#", "");
+				const r = parseInt(color.substring(0, 2), 16);
+				const g = parseInt(color.substring(2, 4), 16);
+				const b = parseInt(color.substring(4, 5), 16);
+				return 0.2126 * r + 0.7152 * g + 0.0722 * b;
 			}
 
 			setInterval(function () {
-				for (let i = 0; i < rows; i++) {
-					for (let j = 0; j < cols; j++) {
-						const mesh =
-							meshes[i * cols + j];
-						changeMeshColor(mesh);
-					}
+				const backgroundColor = getRandomColor();
+				document.body.style.backgroundColor =
+					backgroundColor;
+				document.getElementsByTagName(
+					"canvas"
+				)[0].style.backgroundColor =
+					getComplementaryColor(backgroundColor);
+				material = new THREE.MeshBasicMaterial({
+					wireframe: true,
+					color: backgroundColor,
+				});
+				cubeFaces.material = material;
+				let frameColor = cubeEdges.material.color;
+				const brightnessValue =
+					getBrightness(backgroundColor);
+				if (brightnessValue < 100) {
+					frameColor = "black";
+				} else {
+					frameColor = "white";
 				}
-			}, 2000);
-			let lastX = 0;
-			let lastY = 0;
-			canvas.addEventListener(
-				"mousedown",
-				onMouseDown,
-				false
-			);
-			canvas.addEventListener(
-				"mousemove",
-				onMouseMove,
-				false
-			);
-			canvas.addEventListener("mouseup", onMouseUp, false);
-			canvas.addEventListener(
-				"touchstart",
-				onTouchStart,
-				false
-			);
-			canvas.addEventListener(
-				"touchmove",
-				onTouchMove,
-				false
-			);
-			canvas.addEventListener("touchend", onTouchEnd, false);
-			function onMouseDown(event) {
-				lastX = event.clientX;
-				lastY = event.clientY;
-			}
-
-			function onMouseMove(event) {
-				//if (event.buttons === 1) {
-					const deltaX = event.clientX - lastX;
-					const deltaY = event.clientY - lastY;
-					camera.position.x += deltaX * 0.01;
-					camera.position.y -= deltaY * 0.01;
-					lastX = event.clientX;
-					lastY = event.clientY;
-				//}
-			}
-
-			function onMouseUp(event) {
-				// do nothing
-			}
-
-			function onTouchStart(event) {
-				lastX = event.touches[0].clientX;
-				lastY = event.touches[0].clientY;
-			}
-
-			function onTouchMove(event) {
-				if (event.touches.length === 1) {
-					const deltaX =
-						event.touches[0].clientX -
-						lastX;
-					const deltaY =
-						event.touches[0].clientY -
-						lastY;
-					camera.position.x += deltaX * 0.01;
-					camera.position.y -= deltaY * 0.01;
-					lastX = event.touches[0].clientX;
-					lastY = event.touches[0].clientY;
-				}
-			}
-
-			function onTouchEnd(event) {
-				// do nothing
-			}
+				material = new THREE.MeshBasicMaterial({
+					wireframe: true,
+					color: frameColor,
+				});
+				cubeEdges.material = material;
+			}, 1000);
 		</script>
 	</body>
 </html>
