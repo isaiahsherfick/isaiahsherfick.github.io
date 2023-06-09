@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.6.8)  9 JUN 2023 00:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.6.8)  9 JUN 2023 00:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -9,8 +9,8 @@ L3 programming layer <2020-02-14>
 (/usr/share/texlive/texmf-dist/tex/latex/moderncv/moderncv.cls
 Document Class: moderncv 2015/07/28 v2.0.0 modern curriculum vitae and letter d
 ocument class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
-File: size11.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
@@ -506,12 +506,12 @@ Package microtype Info: Loading generic protrusion settings for font family
 * \topmargin=-75.46606pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=11.0pt
+* \topskip=10.0pt
 * \footskip=30.0pt
-* \marginparwidth=50.0pt
-* \marginparsep=10.0pt
+* \marginparwidth=57.0pt
+* \marginparsep=11.0pt
 * \columnsep=10.0pt
-* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -542,9 +542,6 @@ LaTeX Info: Redefining \nameref on input line 18.
 \@outlinefile=\write3
 \openout3 = `IsaiahSherfickResume.out'.
 
-\pagenumberwidth=\skip81
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 18.
 LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 1
 9.
 
@@ -580,21 +577,22 @@ LaTeX Font Info:    Trying to load font information for OMX+lmex on input line
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 19.
+(Font)              <10> on input line 19.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 19.
+(Font)              <7> on input line 19.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 19.
+(Font)              <5> on input line 19.
 
 Underfull \hbox (badness 10000) in paragraph at lines 19--19
 
  []
 
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 22.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 69.
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 69.
- [2]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 69.
 
 (./IsaiahSherfickResume.aux)
@@ -604,13 +602,13 @@ Package rerunfilecheck Info: File `IsaiahSherfickResume.out' has not changed.
 (rerunfilecheck)             Checksum: 091DE2DAFE211462884A5809762117F4;466.
  ) 
 Here is how much of TeX's memory you used:
- 13983 strings out of 483183
- 212635 string characters out of 5966293
- 495804 words of memory out of 5000000
- 28746 multiletter control sequences out of 15000+600000
- 578240 words of font info for 65 fonts, out of 8000000 for 9000
+ 13973 strings out of 483183
+ 212433 string characters out of 5966293
+ 496654 words of memory out of 5000000
+ 28742 multiletter control sequences out of 15000+600000
+ 577643 words of font info for 61 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 51i,13n,49p,786b,325s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 51i,11n,49p,800b,324s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
 ips/tex-gyre/q-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/fontaweso
 me/fontawesometwo.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/fontawe
@@ -618,10 +616,10 @@ some/FontAwesome.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/s
 hare/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/publi
 c/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb></usr/sha
 re/texmf/fonts/type1/public/tex-gyre/qplr.pfb>
-Output written on IsaiahSherfickResume.pdf (2 pages, 177367 bytes).
+Output written on IsaiahSherfickResume.pdf (1 page, 176075 bytes).
 PDF statistics:
- 71 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
- 7 named destinations out of 1000 (max. 500000)
+ 59 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
+ 6 named destinations out of 1000 (max. 500000)
  13345 words of extra memory for PDF output out of 14400 (max. 10000000)
 
