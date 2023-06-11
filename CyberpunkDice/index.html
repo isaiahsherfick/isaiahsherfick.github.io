@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dice Roller</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        />
+    </head>
+    <body>
+        <div class="container mt-5">
+            <h1 class="text-center">Dice Roller</h1>
+            <div class="row mt-4">
+                <div class="col-6">
+                    <label for="num-d6">Number of D6s:</label>
+                    <input
+                        type="number"
+                        id="num-d6"
+                        class="form-control"
+                        value="0"
+                    />
+                </div>
+                <div class="col-6">
+                    <label for="num-d10">Number of D10s:</label>
+                    <input
+                        type="number"
+                        id="num-d10"
+                        class="form-control"
+                        value="0"
+                    />
+                </div>
+            </div>
+            <button id="roll-btn" class="btn btn-primary mt-3">
+                Roll Dice
+            </button>
+            <h2 id="result" class="text-center mt-5"></h2>
+        </div>
+
+        <script>
+            function rollDice(sides) {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve(Math.floor(Math.random() * sides) + 1);
+                    }, 1000);
+                });
+            }
+
+            function displayResult(diceResults) {
+                let sum = diceResults.reduce((a, b) => a + b, 0);
+                let resultString =
+                    diceResults.map((x) => x ?? "???").join(" + ") +
+                    " = " +
+                    (isNaN(sum) ? "???" : sum);
+                document.getElementById("result").innerText = resultString;
+            }
+            async function rollDiceGroup(
+                startIndex,
+                count,
+                sides,
+                diceResults
+            ) {
+                for (let i = 0; i < count; i++) {
+                    let roll = await rollDice(sides);
+                    diceResults[startIndex + i] = roll;
+                    displayResult(diceResults);
+                }
+            }
+
+            document
+                .getElementById("roll-btn")
+                .addEventListener("click", async function () {
+                    let numD6 =
+                        parseInt(document.getElementById("num-d6").value) || 0;
+                    let numD10 =
+                        parseInt(document.getElementById("num-d10").value) || 0;
+
+                    let diceResults = new Array(numD6 + numD10).fill("???");
+                    displayResult(diceResults);
+
+                    await rollDiceGroup(0, numD6, 6, diceResults);
+                    await rollDiceGroup(numD6, numD10, 10, diceResults);
+                });
+        </script>
+    </body>
+</html>
