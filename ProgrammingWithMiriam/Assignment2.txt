@@ -1,0 +1,33 @@
+**Assignment: Introduction to Recursion**
+
+In this assignment, you will explore the concept of recursion, a fundamental technique in computer science and programming. Recursion is a powerful tool that allows functions to call themselves and solve complex problems by breaking them down into smaller, more manageable subproblems. 
+
+**Problem 1: Factorial Calculation**
+
+Write a Python function `factorial(n)` that calculates the factorial of a positive integer 'n'. The factorial of 'n' is the product of all positive integers from 1 to 'n'. Implement this function using recursion.
+
+**Problem 2: Counting Down**
+
+Create a Python function `count_down(n)` that takes a positive integer 'n' as input and counts down from 'n' to 1, printing each number as it goes. Implement this function using recursion.
+
+**Problem 3: Sum of Natural Numbers**
+
+Implement a Python function `sum_of_natural_numbers(n)` that calculates the sum of the first 'n' natural numbers (1, 2, 3, ..., n). Use recursion to solve this problem.
+
+**Problem 4: Power of a Number**
+
+Write a Python function `power(x, n)` that calculates 'x' raised to the power 'n' (x^n). Implement this function using recursion.
+
+**Problem 5: Fibonacci Sequence**
+
+https://en.wikipedia.org/wiki/Fibonacci_sequence
+
+Create a Python function `fibonacci(n)` that generates the 'n'th number in the Fibonacci sequence. The Fibonacci sequence goes [0,1,1,2,3,5,8,13,21...]. Each subsequent number is the sum of the two preceding numbers. Use recursion to find the 'n'th Fibonacci number.
+
+Example I/O: fibonnaci(5) should return 3. Explanation: 3 is the fifth number in the sequence. (0,1,1,2,3)
+
+**Bonus Problem: Reverse a String**
+
+For this bonus problem, write a Python function `reverse_string(input_str)` that takes a string as input and returns the string reversed. This problem will challenge your understanding of recursion in a different context.
+
+Example I/O: reverse_string("abcd") = "dcba"
