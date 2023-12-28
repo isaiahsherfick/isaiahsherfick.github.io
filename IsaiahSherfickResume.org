@@ -1,0 +1,25 @@
+#+title: Isaiah Sherfick Resume
+
+* Contact
+email: isaiahsherfick8@gmail.com
+github: isaiahsherfick
+website: isaiahsherfick.com
+* Experience
+** Epic Systems Corporation - Software Developer
+- July 2022 - Current
+- Maintained and enhanced clinical cardiology documentation software
+- Independently managed and completed projects from concept to production
+- Ran daily standups and triaged issues to squash bugs
+- Contributed to team growth by mentoring a new hire
+- Traveled on-site to customer health systems to shadow end users
+- Improved launch times by 20% with performance-oriented refactoring
+- Effectively utilized modern debugging solutions to fix operation-critical bugs
+- Leveraged modern software design patterns like MVVC with C#, TS, JS, React, Python, SQL, and MUMPS code
+* Projects
+** Codebase Insights
+** Spotify Migration Companion
+** Hardware Input Scripting Suite
+* Open Source Contributions
+
+* Education
+* Skills
