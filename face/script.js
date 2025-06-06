@@ -15,6 +15,10 @@ let mouth_x;
 let mouth_y;
 let mouth_radius;
 let maximum_translation_length;
+let initial_pitch;
+let initial_roll;
+let pitch;
+let roll;
 
 let mouth_open = false;
 
@@ -101,16 +105,46 @@ window.addEventListener('resize', () => {
     draw_face();
 })
 
-window.addEventListener('mouseup', () => {
+
+window.addEventListener('touchstart', () => {
+    open_mouth();
+})
+
+window.addEventListener('touchend', () => {
+    close_mouth();
+})
+
+function close_mouth() {
     mouth_open = false;
     clear_everything();
     draw_face();
-})
+}
 
-window.addEventListener('mousedown', () => {
+function open_mouth() {
     mouth_open = true;
     clear_everything();
     draw_face();
+}
+
+if (window.innerWidth > window.innerHeight) {
+    window.addEventListener('mouseup', () => {
+        close_mouth();
+    })
+    window.addEventListener('mousedown', () => {
+        open_mouth();
+    })
+}
+
+window.addEventListener('deviceorientation', (event) => {
+    if (!initial_pitch) {
+        initial_pitch = event.beta;
+    }
+    if (!initial_roll) {
+        initial_roll = event.gamma;
+    }
+    pitch = event.beta;
+    roll = event.gamma;
+    draw_eye_pupils_follow_mouse(((window.innerWidth / 10) * (roll - initial_roll)), (window.innerHeight/10) * (pitch - initial_pitch));
 })
 
 function clear_everything() {
