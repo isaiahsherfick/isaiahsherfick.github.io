@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    background: #333333;
+}
+
+#canvas-container {
+    width: 100%;
+    text-align: center;
+}
+
+canvas {
+    width: 100%;
+    display: inline;
+}
