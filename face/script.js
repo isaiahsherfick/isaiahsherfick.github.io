@@ -40,7 +40,6 @@ if (is_iphone) {
     btn.onclick = () => {
         get_orientation_permissions();
         btn.style = 'display: none;'
-        canvas.style = old_canvas_style;
     };
 }
 
