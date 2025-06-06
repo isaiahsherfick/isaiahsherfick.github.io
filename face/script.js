@@ -19,6 +19,30 @@ let initial_pitch;
 let initial_roll;
 let pitch;
 let roll;
+let is_iphone = false;
+let is_android = false;
+
+if (navigator.userAgent.includes("iPhone")) {
+    is_iphone = true;
+} else if (navigator.userAgent.includes("Android")) {
+    is_android = true;
+}
+
+async function get_orientation_permissions() {
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+        await DeviceOrientationEvent.requestPermission();
+    }
+}
+
+if (is_iphone) {
+    const btn = document.getElementById("gyro-permission");
+    btn.style = 'width: 500px; height: 500px; text-align: center; font-size: 50px;';
+    btn.onclick = () => {
+        get_orientation_permissions();
+        btn.style = 'display: none;'
+        canvas.style = old_canvas_style;
+    };
+}
 
 let mouth_open = false;
 
@@ -29,6 +53,8 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 draw_face();
+
+
 
 function draw_face() {
     draw_eye_whites();
@@ -126,7 +152,7 @@ function open_mouth() {
     draw_face();
 }
 
-if (window.innerWidth > window.innerHeight) {
+if (!is_iphone && !is_android) {
     window.addEventListener('mouseup', () => {
         close_mouth();
     })
