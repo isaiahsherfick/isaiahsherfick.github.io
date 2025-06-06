@@ -92,6 +92,10 @@ function update_mouth_parameters() {
 
 window.addEventListener('resize', () => {
     clear_everything();
+    left_pupil_dx = 0;
+    left_pupil_dy = 0;
+    right_pupil_dx = 0;
+    right_pupil_dy = 0;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     draw_face();
