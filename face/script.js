@@ -76,12 +76,21 @@ function draw_eye_whites() {
     ctx.fill();
 }
 
+function is_mobile() {
+    return is_iphone || is_android;
+}
+
 function update_eye_parameters() {
     left_eye_x = window.innerWidth / 3;
     right_eye_x = (window.innerWidth / 3) * 2;
     eyes_y = window.innerHeight / 3;
-    eye_whites_radius = window.innerWidth / 15;
-    pupils_radius = window.innerWidth / 40;
+    if (is_mobile() && window.innerHeight > window.innerWidth) {
+        eye_whites_radius = window.innerWidth / 8;
+        pupils_radius = window.innerWidth / 16;
+    } else {
+        eye_whites_radius = window.innerWidth / 15;
+        pupils_radius = window.innerWidth / 40;
+    }
 }
 
 function draw_eye_pupils() {
@@ -115,12 +124,20 @@ function draw_mouth() {
 }
 
 function update_mouth_parameters() {
-    mouth_x = window.innerWidth / 2;
-    mouth_y = window.innerHeight / 2;
-    mouth_radius = window.innerWidth / 25;
+    if (is_mobile() && window.innerHeight > window.innerWidth) {
+        mouth_x = window.innerWidth / 2;
+        mouth_y = window.innerHeight / 2;
+        mouth_radius = window.innerWidth / 10;
+    } else {
+        mouth_x = window.innerWidth / 2;
+        mouth_y = window.innerHeight / 2;
+        mouth_radius = window.innerWidth / 25;
+    }
 }
 
 window.addEventListener('resize', () => {
+    initial_pitch = undefined;
+    initial_roll = undefined;
     clear_everything();
     left_pupil_dx = 0;
     left_pupil_dy = 0;
