@@ -137,7 +137,6 @@ function update_mouth_parameters() {
 window.addEventListener('resize', () => {
     initial_pitch = undefined;
     initial_roll = undefined;
-    clear_everything();
     left_pupil_dx = 0;
     left_pupil_dy = 0;
     right_pupil_dx = 0;
@@ -177,6 +176,11 @@ if (!is_iphone && !is_android) {
     })
 }
 
+function set_debug_message(message) {
+    const d = document.getElementById("debug");
+    d.innerText = message;
+}
+
 window.addEventListener('deviceorientation', (event) => {
     if (!initial_pitch) {
         initial_pitch = event.beta;
@@ -186,7 +190,9 @@ window.addEventListener('deviceorientation', (event) => {
     }
     pitch = event.beta;
     roll = event.gamma;
-    draw_eye_pupils_follow_mouse(((window.innerWidth / 10) * (roll - initial_roll)), (window.innerHeight/10) * (pitch - initial_pitch));
+    const x = (window.innerWidth / 2) + (window.innerWidth / 15) * (roll - initial_roll);
+    const y = (window.innerHeight / 2) + (window.innerHeight / 15) * (pitch - initial_pitch);
+    draw_eye_pupils_follow_mouse(x,y);
 })
 
 function clear_everything() {
@@ -208,15 +214,19 @@ function draw_eye_pupils_follow_mouse(mouse_x, mouse_y) {
 
     const right_x = mouse_x - right_eye_x;
     const right_eye_hypotenuse_length = Math.sqrt(right_x ** 2 + y ** 2);
-    const right_scale_factor = Math.min(right_eye_hypotenuse_length, maximum_translation_length) / right_eye_hypotenuse_length;
-    right_pupil_dx = right_x * right_scale_factor;
-    right_pupil_dy = y * right_scale_factor;
+    if (right_eye_hypotenuse_length != 0) {
+        const right_scale_factor = Math.min(right_eye_hypotenuse_length, maximum_translation_length) / right_eye_hypotenuse_length;
+        right_pupil_dx = right_x * right_scale_factor;
+        right_pupil_dy = y * right_scale_factor;
+    }
 
     const left_x = mouse_x - left_eye_x;
     const left_eye_hypotenuse_length = Math.sqrt(left_x ** 2 + y ** 2);
-    const left_scale_factor = Math.min(left_eye_hypotenuse_length, maximum_translation_length) / left_eye_hypotenuse_length;
-    left_pupil_dx = left_x * left_scale_factor;
-    left_pupil_dy = y * left_scale_factor;
+    if (left_eye_hypotenuse_length != 0) {
+        const left_scale_factor = Math.min(left_eye_hypotenuse_length, maximum_translation_length) / left_eye_hypotenuse_length;
+        left_pupil_dx = left_x * left_scale_factor;
+        left_pupil_dy = y * left_scale_factor;
+    }
 
     draw_eye_pupils();
 }
