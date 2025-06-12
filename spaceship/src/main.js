@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.1, 100);
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1,1000);
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
@@ -11,33 +11,22 @@ let left_arrow_down = false;
 let right_arrow_down = false;
 let up_arrow_down = false;
 let down_arrow_down = false;
+let camera_speed = -0.2;
 
-// const plane_cube_side_len = 25;
-// for (let x = 0; x < 100; x+=plane_cube_side_len) {
-//     for (let y = 0; y < 100; y+=plane_cube_side_len ) {
-//         const cube = create_green_mesh_cube(x, plane_cube_side_len, y);
-//         rotating_shapes.push(cube);
-//         scene.add(cube);
-//     }
-// }
-// const cube = create_green_mesh_cube(1,1,1);
-// rotating_shapes.push(cube);
-// scene.add(cube);
-
+let camera_tilt = 0;
 
 function create_plane(plane_width, gap_between_lines, plane_depth, plane_y, plane_color) {
     const material = new THREE.LineBasicMaterial( {color: plane_color} );
     const num_z_lines = plane_width / gap_between_lines;
-    for (let x = -1 * num_z_lines + 1; x < num_z_lines; x+= gap_between_lines) {
+    for (let x = (-1 * gap_between_lines * num_z_lines / 2)-1 ; x <= gap_between_lines * num_z_lines / 2; x+= gap_between_lines) {
         const points = [];
-        points.push (new THREE.Vector3(x,plane_y,-1));
+        points.push (new THREE.Vector3(x,plane_y,0));
         points.push (new THREE.Vector3(x,plane_y,plane_depth));
         const geometry = new THREE.BufferGeometry().setFromPoints(points);
         const line = new THREE.Line(geometry, material);
         scene.add(line);
     }
-    const num_horizontal_lines = plane_depth / gap_between_lines;
-    for (let z = 0; z < num_horizontal_lines; z += gap_between_lines) {
+    for (let z = 0; z <= plane_depth; z += gap_between_lines) {
         const points = [];
         points.push (new THREE.Vector3(-1 * plane_width / 2,plane_y,z));
         points.push (new THREE.Vector3(plane_width / 2,plane_y,z));
@@ -47,8 +36,8 @@ function create_plane(plane_width, gap_between_lines, plane_depth, plane_y, plan
     }
 }
 
-create_plane(2000,2,2000,0, 0x00ff00);
-create_plane(2000,2,2000,100, 0x00ff00);
+create_plane(10000,50,10000,-200, 0x00ff00);
+create_plane(10000,50,10000,200, 0x00ff00);
 
 camera.position.z = -2;
 camera.position.y = 25;
@@ -85,18 +74,22 @@ function update_info_label(message) {
     info.innerText = message;
 }
 function animate() {
-    const camera_speed = 0.2;
     rotate_shapes();
-    camera.position.z += 0.1;
+    // camera.rotation.z += 0.01;
+    // camera.rotation.x += 0.01;
+    // camera.rotation.y += 0.01;
+    camera.position.z += camera_speed;
     if (left_arrow_down) {
-        camera.position.x -= camera_speed;
+        camera.position.x += 1;
     } else if (right_arrow_down) {
-        camera.position.x += camera_speed;
+        camera.position.x -= 1;
     }
-    if (up_arrow_down && camera.position.y < 98) {
-        camera.position.y += camera_speed;
-    } else if (down_arrow_down && camera.position.y > 2) {
-        camera.position.y -= camera_speed;
+    // if (up_arrow_down && camera.position.y < 98) {
+    if (up_arrow_down) {
+        camera.position.y += 1;
+    // } else if (down_arrow_down && camera.position.y > 2) {
+    } else if (down_arrow_down) {
+        camera.position.y -= 1;
     }
     // update_info_label("camera y = " + camera.position.y);
     // cube.position.x = camera.position.x;
@@ -131,6 +124,16 @@ window.addEventListener("keydown", (event) => {
 window.addEventListener("resize", (event) => {
     renderer.setSize(window.innerWidth, window.innerHeight);
 })
+
+window.addEventListener("wheel", (event) => {
+    console.log(camera_speed);
+    if (event.deltaY > 0) {
+        camera_speed -= 0.01;
+    } else {
+        camera_speed += 0.01;
+    }
+
+});
 
 window.addEventListener("keyup", (event) => {
     switch (event.key) {
