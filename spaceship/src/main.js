@@ -11,7 +11,7 @@ let left_arrow_down = false;
 let right_arrow_down = false;
 let up_arrow_down = false;
 let down_arrow_down = false;
-let camera_speed = -0.2;
+let camera_speed = 5;
 
 let camera_tilt = 0;
 
@@ -81,8 +81,19 @@ function animate() {
     camera.position.z += camera_speed;
     if (left_arrow_down) {
         camera.position.x += 1;
+        if (camera.rotation.z <= -3) {
+            camera.rotation.z += 0.01;
+        }
     } else if (right_arrow_down) {
         camera.position.x -= 1;
+    }
+    else {
+        update_info_label("rot z" + camera.rotation.z + " pi: " + Math.PI);
+        if (camera.rotation.z > Math.PI) {
+            camera.rotation.z -= 0.01;
+        } else if (camera.rotation.z < Math.PI) {
+            camera.rotation.z += 0.01;
+        }
     }
     // if (up_arrow_down && camera.position.y < 98) {
     if (up_arrow_down) {
